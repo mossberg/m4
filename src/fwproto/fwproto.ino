@@ -16,7 +16,7 @@
 
 // Feedback Enables
 #define ENABLE_LED 1
-#define ENABLE_PIEZO 1
+#define ENABLE_PIEZO 0
 
 // Lidar
 
@@ -110,18 +110,14 @@ void feedback_init() {
   piezo_init();
 }
 
-// TODO: currently this causes the feedback to be repeated
-// with noticeable gaps, according to the delay used. It
-// would be better to provide continuous feedback.
-void feedback_trigger() {
-  const int feedback_len = 250;
-  led_on();
-  piezo_on();
-  
-  delay(feedback_len);
-  
-  led_off();
-  piezo_off();
+void feedback_trigger(bool trigger) {
+  if (trigger) {
+    led_on();
+    piezo_on();
+  } else {
+    led_off();
+    piezo_off();
+  }
 }
 
 // Main
@@ -135,18 +131,10 @@ void setup() {
 }
 
 void loop() {
-
   int lidar_dist = lidar_read();
   int usound_dist = usound_read();
-  if (lidar_dist < LIDAR_THRESH || usound_dist < USOUND_THRESH) {
-    feedback_trigger();
-  }
+  feedback_trigger( lidar_dist < LIDAR_THRESH || usound_dist < USOUND_THRESH );
   Serial.println(lidar_dist);
   Serial.println(usound_dist);
   delay(10);
-
-  
-  
-  
-  
 }
