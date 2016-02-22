@@ -47,9 +47,9 @@ void main(void)
         while (ADCON0bits.GO);
         int x = ((ADRESH * 256) + ADRESL);
         if (x > 50) {
-            RC0 = 1;
+            RC0 = 0;
         }else {
-             RC0 = 0;
+             RC0 = 1;
         }
         //__delay_ms(500);  // 1 second delay 
    // RC0=0;                    // make RD7 pin Low to Off LED 
