@@ -37,7 +37,11 @@ void I2CInit(void)
 	TRISC1 = 1;      /* these pins can be configured either i/p or o/p */
     /* maybe replace this with an assignment */
 	SSP1STAT |= 0x80; /* Slew rate disabled */
+    
 	SSP1CON1 = 0x28;   /* SSPEN = 1, I2C Master mode, clock = FOSC/(4 * (SSPADD + 1)) */
+    
+    //SSP1CON2 = 0;
+    
 	SSP1ADD = 0x28;    /* 100Khz @ 4Mhz Fosc */
 }
  
@@ -113,7 +117,7 @@ Description: wait for transfer to finish
 */
 void I2CWait()
 {
-	while ((SSPCON2 & 0x1F ) || ( SSPSTAT & 0x04 ) );
+	while ((SSP1CON2 & 0x1F ) || ( SSP1STAT & 0x04 ) );
     /* wait for any pending transfer */
 }
  
@@ -126,7 +130,8 @@ Description: Send 8-bit data on I2C bus
 */
 void I2CSend(unsigned char dat)
 {
-	SSPBUF = dat;    /* Move data to SSPBUF */
+    SSP1IF = 0;
+	SSP1BUF = dat;    /* Move data to SSPBUF */
 	while(BF);       /* wait till complete data is sent from buffer */
 	I2CWait();       /* wait for any pending transfer */
 }
@@ -143,7 +148,7 @@ unsigned char I2CRead(void)
 /* Reception works if transfer is initiated in read mode */
 	RCEN = 1;        /* Enable data reception */
 	while(!BF);      /* wait for buffer full */
-	temp = SSPBUF;   /* Read serial buffer and store in temp register */
+	temp = SSP1BUF;   /* Read serial buffer and store in temp register */
 	I2CWait();       /* wait to check any pending transfer */
 	return temp;     /* Return the read data from bus */
 }
