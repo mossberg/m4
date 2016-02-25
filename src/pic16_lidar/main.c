@@ -25,6 +25,15 @@
  * I2C Primitives
  */
 
+void looop(void) {
+    while (1) {
+          RC2 = 1;
+        __delay_ms(50);  // 1 second delay 
+        RC2 = 0;
+        __delay_ms(50);  // 1 second delay
+    }
+}
+
 /*
 Function: I2CInit
 Return:
@@ -42,7 +51,8 @@ void I2CInit(void)
     
     //SSP1CON2 = 0;
     
-	SSP1ADD = 0x28;    /* 100Khz @ 4Mhz Fosc */
+	//SSP1ADD = 0x28;    /* 100Khz @ 4Mhz Fosc */
+    SSP1ADD = 0x10;    /* 100Khz @ 4Mhz Fosc */
 }
  
 /*
@@ -54,7 +64,31 @@ Description: Send a start condition on I2C Bus
 void I2CStart()
 {
 	SEN = 1;         /* Start condition enabled */
-	while(SEN);      /* automatically cleared by hardware */
+    /*while (!SSP1STATbits.S) {
+      RC2 = 1;
+        __delay_ms(50);  // 1 second delay 
+        RC2 = 0;
+        __delay_ms(50);
+    }
+    looop();*/
+    
+    while(SEN);
+    //if (!RC1) looop();
+    
+    /*while(SEN) {
+        
+        
+        RC2 = 1;
+        __delay_ms(1000);  // 1 second delay 
+        RC2 = 0;
+        __delay_ms(1000);
+        RC2 = 1;
+        __delay_ms(1000);  // 1 second delay 
+        RC2 = 0;
+        __delay_ms(1000);
+        
+    }*/
+	//while(SEN);      /* automatically cleared by hardware */
                      /* wait for start condition to finish */
 }
  
@@ -130,9 +164,30 @@ Description: Send 8-bit data on I2C bus
 */
 void I2CSend(unsigned char dat)
 {
-    SSP1IF = 0;
+    //SSP1IF = 0;
+    
 	SSP1BUF = dat;    /* Move data to SSPBUF */
+    /*while (!BF) {
+        RC2 = 1;
+        __delay_ms(2000);  // 1 second delay 
+        RC2 = 0;
+        __delay_ms(2000);
+        RC2 = 1;
+        __delay_ms(2000);  // 1 second delay 
+        RC2 = 0;
+        __delay_ms(2000);
+    }*/
 	while(BF);       /* wait till complete data is sent from buffer */
+    /*while (!SSP1CON2bits.ACKSTAT) {
+        RC2 = 1;
+        __delay_ms(1000);  // 1 second delay 
+        RC2 = 0;
+        __delay_ms(1000);
+        RC2 = 1;
+        __delay_ms(1000);  // 1 second delay 
+        RC2 = 0;
+        __delay_ms(1000);
+    }*/
 	I2CWait();       /* wait for any pending transfer */
 }
  
@@ -186,13 +241,14 @@ TRISC2 = 0;
     while(1)
     {
         I2CStart();
-          I2CSend(0x55); 
+          //I2CSend(0x55); 
+          I2CSend(0xc4); 
           I2CStop();
           
           RC2 = 1;
-        __delay_ms(100);  // 1 second delay 
+        __delay_ms(500);  // 1 second delay 
         RC2 = 0;
-        __delay_ms(100);  // 1 second delay 
+        __delay_ms(500);  // 1 second delay 
         
         //__delay_ms(500);  // 1 second delay 
    // RC0=0;                    // make RD7 pin Low to Off LED 

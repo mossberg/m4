@@ -20,6 +20,7 @@
                    displayName="Important Files"
                    projectFiles="false">
       <itemPath>Makefile</itemPath>
+      <itemPath>/tmp/MyConfig.mc3</itemPath>
     </logicalFolder>
     <itemPath>getting_started.txt</itemPath>
     <itemPath>legal_disclaimer.txt</itemPath>
