@@ -11,12 +11,13 @@
 #define PIN_PIEZO 9
 #define PIN_USOUND A0
 
+// worked for initial dev
 #define LIDAR_THRESH 100
 #define USOUND_THRESH 25
 
 // Feedback Enables
 #define ENABLE_LED 1
-#define ENABLE_PIEZO 0
+#define ENABLE_PIEZO 1
 
 // Lidar
 
@@ -57,6 +58,9 @@ int lidar_read() {
   return distance;
 }
 
+bool lidar_trigger(int measurement) {
+  return measurement > LIDAR_THRESH;
+}
 
 // Ultrasound
 
@@ -74,6 +78,9 @@ int usound_read() {
   return (int) range;
 }
 
+bool usound_trigger(int measurement) {
+  return measurement < USOUND_THRESH;
+}
 // Feedback:LED
 
 void led_init() {
@@ -133,7 +140,7 @@ void setup() {
 void loop() {
   int lidar_dist = lidar_read();
   int usound_dist = usound_read();
-  feedback_trigger( lidar_dist < LIDAR_THRESH || usound_dist < USOUND_THRESH );
+  feedback_trigger( lidar_trigger(lidar_dist) || usound_trigger(usound_dist) );
   Serial.println(lidar_dist);
   Serial.println(usound_dist);
   delay(10);
