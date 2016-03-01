@@ -45,7 +45,15 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  */
 
 #include "mcc_generated_files/mcc.h"
-
+void looop(void)
+{
+    while (1) {
+        RC2 = 1;
+        __delay_ms(50);  // 1 second delay 
+        RC2=0;                    // make RD7 pin Low to Off LED 
+        __delay_ms(50);
+    }
+}
 /*
                          Main application
  */
@@ -58,10 +66,10 @@ void main(void)
     // Use the following macros to:
 
     // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
+    INTERRUPT_GlobalInterruptEnable();
 
     // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
+    INTERRUPT_PeripheralInterruptEnable();
 
     // Disable the Global Interrupts
     //INTERRUPT_GlobalInterruptDisable();
@@ -69,8 +77,20 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
 
+    TRISC2 = 0;
+    I2C_MESSAGE_STATUS stat;
+    uint8_t pdata[] = {1};
+    //uint8_t length = sizeof(pdata)/sizeof(*pdata);
     while (1)
     {
+        I2C_MasterWrite(pdata, 1, 0x62, &stat);
+        if (stat == I2C_MESSAGE_FAIL) {
+            looop();
+        }
+        RC2 = 1;
+        __delay_ms(500);  // 1 second delay 
+        RC2=0;                    // make RD7 pin Low to Off LED 
+        __delay_ms(500);
         // Add your application code
     }
 }
