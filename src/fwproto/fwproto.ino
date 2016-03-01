@@ -13,7 +13,7 @@
 
 // worked for initial dev
 #define LIDAR_THRESH 100
-#define USOUND_THRESH 25
+#define USOUND_THRESH 50
 
 // Feedback Enables
 #define ENABLE_LED 1
