@@ -45,6 +45,10 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
  */
 
+#define DUTY_RATIO 0.15
+
+#include <stdio.h>
+#include <math.h>
 #include "mcc_generated_files/mcc.h"
 
 /*
@@ -61,13 +65,35 @@ void main(void)
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
     
+    // Set new PWM period
+    uint8_t period = 0xFF;
+    TMR2_LoadPeriodRegister(period);
+    
+    // Set new duty cycle for PWM
+    uint16_t duty = floor(DUTY_RATIO*4*(period+1));
+    PWM1_LoadDutyValue(duty);
+    
+    // Clear the analog select for GPIO output on RC5
+    ANSELC = 0;
+
+    // Configure RC5 as an output
     TRISC5 = 0;
     
+    int count = 0;
+    float dutycount = 0.1;
     while (1)
     {
+        count++;
+        if (count > 1000){
+            count = 0;
+            dutycount += 0.10;
+                    if (dutycount > 1)
+                        dutycount = 0;
+            //duty = floor(dutycount*4*(period+1));
+            //PWM1_LoadDutyValue(duty);
+        }
         // Set RC5 to the PWM output
         RC5 = (PWM1CON & 0b00000100);
-        
     }
 }
 /**
