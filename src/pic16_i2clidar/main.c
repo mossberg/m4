@@ -45,15 +45,41 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  */
 
 #include "mcc_generated_files/mcc.h"
-void looop(void)
+#define FAST 20
+#define SLOW 100
+#define SUPERSLOW 2000
+void flooop(void)
 {
     while (1) {
         RC2 = 1;
-        __delay_ms(50);  // 1 second delay 
+        __delay_ms(FAST);  // 1 second delay 
         RC2=0;                    // make RD7 pin Low to Off LED 
-        __delay_ms(50);
+        __delay_ms(FAST);
     }
 }
+
+void slooop(void)
+{
+    while (1) {
+        RC2 = 1;
+        __delay_ms(SLOW);  // 1 second delay 
+        RC2=0;                    // make RD7 pin Low to Off LED 
+        __delay_ms(SLOW);
+    }
+}
+
+void sslooop(void)
+{
+    while (1) {
+        RC2 = 1;
+        __delay_ms(SUPERSLOW);  // 1 second delay 
+        RC2=0;                    // make RD7 pin Low to Off LED 
+        __delay_ms(SUPERSLOW);
+    }
+}
+
+
+
 /*
                          Main application
  */
@@ -62,7 +88,8 @@ void main(void)
     // initialize the device
     SYSTEM_Initialize();
 
-    // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
+    // When using interrupts, you need to set the 
+    // Global and Peripheral Interrupt Enable bits
     // Use the following macros to:
 
     // Enable the Global Interrupts
@@ -79,19 +106,45 @@ void main(void)
 
     TRISC2 = 0;
     I2C_MESSAGE_STATUS stat;
-    uint8_t pdata[] = {1};
+    uint8_t pdata[2] = {0, 4};
+    uint8_t a = 0;
+    uint8_t b = 4;
+    uint8_t tmp;
     //uint8_t length = sizeof(pdata)/sizeof(*pdata);
     while (1)
     {
-        I2C_MasterWrite(pdata, 1, 0x62, &stat);
-        if (stat == I2C_MESSAGE_FAIL) {
-            looop();
+        I2C_MasterWrite(pdata, 2, 0x62, &stat);
+        //I2C_MasterWrite(&b, 1, 0x55, &stat);
+        //I2C_MasterRead(&tmp, 1, 0x55, &stat);
+        
+        while(stat == I2C_MESSAGE_PENDING) {
+            RC2 = 1;
+            __delay_ms(29);  // 1 second delay 
+            RC2=0;                    // make RD7 pin Low to Off LED 
+            __delay_ms(29);
+        }
+        if (stat == I2C_DATA_NO_ACK) {
+                while (1) {
+                      RC2 = 1;
+                       __delay_ms(100);  // 1 second delay 
+                    RC2=0;                    // make RD7 pin Low to Off LED 
+                        __delay_ms(100);
+               }
+        }
+        sslooop();
+        
+        if (stat == I2C_MESSAGE_PENDING) {
+        
+        //if (stat == I2C_MESSAGE_FAIL) {
+            sslooop();
         }
         RC2 = 1;
-        __delay_ms(500);  // 1 second delay 
-        RC2=0;                    // make RD7 pin Low to Off LED 
-        __delay_ms(500);
+        
+        __delay_ms(100);  // 1 second delay 
+        RC2 = 0;                    // make RD7 pin Low to Off L            ED 
+        __delay_ms(100);
         // Add your application code
+        
     }
 }
 /**
