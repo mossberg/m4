@@ -1,6 +1,4 @@
-/**
-  Generated Main Source File
-
+/** Generated Main Source File 
   Company:
     Microchip Technology Inc.
 
@@ -48,41 +46,14 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define FAST 20
 #define SLOW 100
 #define SUPERSLOW 2000
-void flooop(void)
-{
-    while (1) {
-        RC2 = 1;
-        __delay_ms(FAST);  // 1 second delay 
-        RC2=0;                    // make RD7 pin Low to Off LED 
-        __delay_ms(FAST);
-    }
-}
 
-void slooop(void)
-{
-    while (1) {
-        RC2 = 1;
-        __delay_ms(SLOW);  // 1 second delay 
-        RC2=0;                    // make RD7 pin Low to Off LED 
-        __delay_ms(SLOW);
-    }
-}
 
-void sslooop(void)
-{
-    while (1) {
-        RC2 = 1;
-        __delay_ms(SUPERSLOW);  // 1 second delay 
-        RC2=0;                    // make RD7 pin Low to Off LED 
-        __delay_ms(SUPERSLOW);
-    }
+void error(void) {
+    RC2 = 1;
+    while(1);
 }
 
 
-
-/*
-                         Main application
- */
 void main(void)
 {
     // initialize the device
@@ -98,55 +69,57 @@ void main(void)
     // Enable the Peripheral Interrupts
     INTERRUPT_PeripheralInterruptEnable();
 
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
-
-    // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
-
     TRISC2 = 0;
+
     I2C_MESSAGE_STATUS stat;
     uint8_t pdata[2] = {0, 4};
-    uint8_t a = 0;
-    uint8_t b = 4;
-    uint8_t tmp;
-    //uint8_t length = sizeof(pdata)/sizeof(*pdata);
+    uint8_t upper = 0x0f;
+    uint8_t lower = 0x10;
+    uint8_t upperread, lowerread;
+    
+    // if there's ever an error in this loop, we ignore it and restart
+    // the control loop
     while (1)
     {
+        // TODO: this could fail, so put a while loop around it
         I2C_MasterWrite(pdata, 2, 0x62, &stat);
-        //I2C_MasterWrite(&b, 1, 0x55, &stat);
-        //I2C_MasterRead(&tmp, 1, 0x55, &stat);
+        while (stat == I2C_MESSAGE_PENDING);
+        if (stat != I2C_MESSAGE_COMPLETE)
+            continue;
+
+        // this delay is *required*. per the lidar datasheet, as an alternative
+        // polling the device during reads, we can wait about 20ms and the
+        // measurement will be ready
+        __delay_ms(20);
+
+        stat = I2C_MESSAGE_PENDING;
         
-        while(stat == I2C_MESSAGE_PENDING) {
+        // read high 8 bits of measurement
+        I2C_MasterWrite(&upper, 1, 0x62, &stat);
+        while(stat == I2C_MESSAGE_PENDING);
+        I2C_MasterRead(&upperread, 1, 0x62, &stat);
+        while(stat == I2C_MESSAGE_PENDING);
+        if (stat != I2C_MESSAGE_COMPLETE)
+            continue;
+
+        __delay_ms(1);
+        
+        // read low 8 bits of measurement
+        I2C_MasterWrite(&lower, 1, 0x62, &stat);
+        while(stat == I2C_MESSAGE_PENDING);
+        I2C_MasterRead(&lowerread, 1, 0x62, &stat);
+        while(stat == I2C_MESSAGE_PENDING);
+        if (stat != I2C_MESSAGE_COMPLETE)
+            continue;
+        
+        __delay_ms(1);
+        
+        
+        uint16_t dist2 = (upperread << 8) + lowerread;
+        if (dist2 > 120) {
             RC2 = 1;
-            __delay_ms(29);  // 1 second delay 
-            RC2=0;                    // make RD7 pin Low to Off LED 
-            __delay_ms(29);
+        } else {
+            RC2 = 0;
         }
-        if (stat == I2C_DATA_NO_ACK) {
-                while (1) {
-                      RC2 = 1;
-                       __delay_ms(100);  // 1 second delay 
-                    RC2=0;                    // make RD7 pin Low to Off LED 
-                        __delay_ms(100);
-               }
-        }
-        sslooop();
-        
-        if (stat == I2C_MESSAGE_PENDING) {
-        
-        //if (stat == I2C_MESSAGE_FAIL) {
-            sslooop();
-        }
-        RC2 = 1;
-        
-        __delay_ms(100);  // 1 second delay 
-        RC2 = 0;                    // make RD7 pin Low to Off L            ED 
-        __delay_ms(100);
-        // Add your application code
-        
     }
 }
-/**
- End of File
-*/
