@@ -31,11 +31,11 @@ void main(void)
 
     /* Initialize I/O and Peripherals for application */
     InitApp();
-    TRISC0 = 0;
+    TRISC2 = 0;
     
-    TRISC1 = 1; // set pin as input
-    ANSC1 = 1; // select pin as analog in
-    ADCON0 = 0b00010101;
+    TRISC3 = 1; // set pin as input
+    ANSC3 = 1; // select pin as analog in
+    ADCON0 = 0b00011101;
     ADCON1 = 0b11110000;
     ADCON2 = 0b00000000;
     //ADCS = 0b11;
@@ -46,10 +46,12 @@ void main(void)
         ADCON0bits.GO_nDONE = 1;
         while (ADCON0bits.GO);
         int x = ((ADRESH * 256) + ADRESL);
-        if (x > 50) {
-            RC0 = 0;
+        float y = x * (5.0 / 1023.0);
+        y /= .0098;
+        if (y > 50) {
+            RC2 = 0;
         }else {
-             RC0 = 1;
+             RC2 = 1;
         }
         //__delay_ms(500);  // 1 second delay 
    // RC0=0;                    // make RD7 pin Low to Off LED 
