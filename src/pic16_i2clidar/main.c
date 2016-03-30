@@ -43,14 +43,62 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
  */
 
 #include "mcc_generated_files/mcc.h"
-#define FAST 20
-#define SLOW 100
-#define SUPERSLOW 2000
+
+#define LIDAR_THRESH 120
 
 
 void error(void) {
     RC2 = 1;
     while(1);
+}
+
+
+int32_t lidar_read(void)
+{
+    I2C_MESSAGE_STATUS stat;
+    uint8_t pdata[2] = {0, 4};
+    uint8_t upper = 0x0f;
+    uint8_t lower = 0x10;
+    uint8_t upperread, lowerread;
+
+    // TODO: this could fail, so put a while loop around it
+    I2C_MasterWrite(pdata, 2, 0x62, &stat);
+    while (stat == I2C_MESSAGE_PENDING);
+    if (stat != I2C_MESSAGE_COMPLETE)
+        return -1;
+
+    // this delay is *required*. per the lidar datasheet, as an alternative
+    // polling the device during reads, we can wait about 20ms and the
+    // measurement will be ready
+    __delay_ms(20);
+
+    stat = I2C_MESSAGE_PENDING;
+    
+    // read high 8 bits of measurement
+    I2C_MasterWrite(&upper, 1, 0x62, &stat);
+    while(stat == I2C_MESSAGE_PENDING);
+    I2C_MasterRead(&upperread, 1, 0x62, &stat);
+    while(stat == I2C_MESSAGE_PENDING);
+    if (stat != I2C_MESSAGE_COMPLETE)
+        return -1;
+
+    __delay_ms(1);
+    
+    // read low 8 bits of measurement
+    I2C_MasterWrite(&lower, 1, 0x62, &stat);
+    while(stat == I2C_MESSAGE_PENDING);
+    I2C_MasterRead(&lowerread, 1, 0x62, &stat);
+    while(stat == I2C_MESSAGE_PENDING);
+    if (stat != I2C_MESSAGE_COMPLETE)
+        return -1;
+    
+    __delay_ms(1);
+    return (upperread << 8) + lowerread;
+}
+
+int lidar_trigger(int measurement)
+{
+    return measurement > LIDAR_THRESH;
 }
 
 
@@ -70,53 +118,16 @@ void main(void)
     INTERRUPT_PeripheralInterruptEnable();
 
     TRISC2 = 0;
-
-    I2C_MESSAGE_STATUS stat;
-    uint8_t pdata[2] = {0, 4};
-    uint8_t upper = 0x0f;
-    uint8_t lower = 0x10;
-    uint8_t upperread, lowerread;
     
     // if there's ever an error in this loop, we ignore it and restart
     // the control loop
     while (1)
     {
-        // TODO: this could fail, so put a while loop around it
-        I2C_MasterWrite(pdata, 2, 0x62, &stat);
-        while (stat == I2C_MESSAGE_PENDING);
-        if (stat != I2C_MESSAGE_COMPLETE)
+        uint32_t dist = lidar_read();
+        if (dist == -1)
             continue;
 
-        // this delay is *required*. per the lidar datasheet, as an alternative
-        // polling the device during reads, we can wait about 20ms and the
-        // measurement will be ready
-        __delay_ms(20);
-
-        stat = I2C_MESSAGE_PENDING;
-        
-        // read high 8 bits of measurement
-        I2C_MasterWrite(&upper, 1, 0x62, &stat);
-        while(stat == I2C_MESSAGE_PENDING);
-        I2C_MasterRead(&upperread, 1, 0x62, &stat);
-        while(stat == I2C_MESSAGE_PENDING);
-        if (stat != I2C_MESSAGE_COMPLETE)
-            continue;
-
-        __delay_ms(1);
-        
-        // read low 8 bits of measurement
-        I2C_MasterWrite(&lower, 1, 0x62, &stat);
-        while(stat == I2C_MESSAGE_PENDING);
-        I2C_MasterRead(&lowerread, 1, 0x62, &stat);
-        while(stat == I2C_MESSAGE_PENDING);
-        if (stat != I2C_MESSAGE_COMPLETE)
-            continue;
-        
-        __delay_ms(1);
-        
-        
-        uint16_t dist2 = (upperread << 8) + lowerread;
-        if (dist2 > 120) {
+        if (lidar_trigger(dist)) {
             RC2 = 1;
         } else {
             RC2 = 0;
