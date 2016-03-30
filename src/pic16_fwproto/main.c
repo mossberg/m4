@@ -145,7 +145,7 @@ void main(void)
     // the control loop
     while (1)
     {
-        uint32_t dist = lidar_read();
+        int32_t dist = lidar_read();
         if (dist == -1)
             continue;
 
