@@ -178,8 +178,8 @@ void main(void)
     {
         int16_t usound_dist = usound_read();
         int32_t lidar_dist = lidar_read();
-        if (dist == -1)
-            continue;*/
+        if (lidar_dist == -1)
+            continue;
 
         feedback_trigger(lidar_trigger(lidar_dist) || usound_trigger(usound_dist));
     }
