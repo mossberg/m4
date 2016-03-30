@@ -45,6 +45,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "mcc_generated_files/mcc.h"
 
 #define LIDAR_THRESH 120
+#define USOUND_THRESH 50
 
 #define LED_PIN RC2
 
@@ -53,6 +54,35 @@ void error(void) {
     RC2 = 1;
     while(1);
 }
+
+// Ultrasound
+
+void usound_init(void)
+{
+    TRISC3 = 1; // set pin as input
+    ANSC3 = 1; // select pin as analog in
+    ADCON0 = 0b00011101;
+    ADCON1 = 0b11110000;
+    ADCON2 = 0b00000000;
+}
+
+int16_t usound_read(void)
+{
+    ADCON0bits.GO_nDONE = 1;
+    while (ADCON0bits.GO);
+    uint16_t sensor_value = ((ADRESH << 8) + ADRESL);
+    float voltage = sensor_value * (3.3 / 1023.0);
+    float range = voltage / .0064;
+    return range;
+}
+
+uint32_t usound_trigger(int16_t measurement)
+{
+    return measurement < USOUND_THRESH;
+}
+
+
+// Lidar
 
 int32_t lidar_read(void)
 {
@@ -97,7 +127,7 @@ int32_t lidar_read(void)
     return (upperread << 8) + lowerread;
 }
 
-int lidar_trigger(int measurement)
+uint32_t lidar_trigger(int32_t measurement)
 {
     return measurement > LIDAR_THRESH;
 }
@@ -128,6 +158,7 @@ void main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
+    usound_init(); 
 
     // When using interrupts, you need to set the 
     // Global and Peripheral Interrupt Enable bits
@@ -145,10 +176,11 @@ void main(void)
     // the control loop
     while (1)
     {
-        int32_t dist = lidar_read();
+        int16_t usound_dist = usound_read();
+        int32_t lidar_dist = lidar_read();
         if (dist == -1)
-            continue;
+            continue;*/
 
-        feedback_trigger(lidar_trigger(dist));
+        feedback_trigger(lidar_trigger(lidar_dist) || usound_trigger(usound_dist));
     }
 }
