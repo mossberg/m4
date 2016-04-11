@@ -60,26 +60,39 @@ void error(void) {
     while(1);
 }
 
+void led_on(void)
+{
+    LED_PIN = 1;
+}
+
+void led_off(void)
+{
+    LED_PIN = 0;
+}
+
+void pwm1_output_disable(void) {
+    for(int i = 0; i < 15; i++)
+        PWM1CON &= ~(1<<6);
+    //PWM1CONbits.PWM1OE = 0;
+    
+}
+
+void pwm1_output_enable(void) {
+//    PWM1CON |= (1<<6);
+    PWM1CONbits.PWM1OE = 1;
+}
+
+void pwm3_output_disable(void) {
+//    PWM3CON &= ~(1<<6);
+    PWM3CONbits.PWM3OE = 0;
+}
+
+void pwm3_output_enable(void) {
+//    PWM3CON |= (1<<6);
+    PWM3CONbits.PWM3OE = 1;
+}
+
 // Ultrasound
-
-//void usound_init(void)
-//{
-//    TRISC3 = 1; // set pin as input
-//    ANSC3 = 1; // select pin as analog in
-//    ADCON0 = 0b00011101;
-//    ADCON1 = 0b11110000;
-//    ADCON2 = 0b00000000;
-//}
-
-//int16_t usound_read_old(void)
-//{
-//    ADCON0bits.GO_nDONE = 1;
-//    while (ADCON0bits.GO);
-//    uint16_t sensor_value = ((ADRESH << 8) + ADRESL);
-//    float voltage = sensor_value * (3.3 / 1023.0);
-//    float range = voltage / .0064;
-//    return range;
-//}
 
 uint16_t usound_read(void)
 {
@@ -94,6 +107,17 @@ uint32_t usound_trigger(adc_result_t measurement)
     return measurement < USOUND_THRESH;
 }
 
+void usound_feedback(adc_result_t trigger)
+{
+    if (usound_trigger(trigger)) {
+        pwm3_output_enable();
+        led_on();
+    } else {
+        pwm3_output_disable();
+        led_off();
+    }
+}
+
 
 // Lidar
 
@@ -102,66 +126,23 @@ adc_result_t lidar_read(void)
     return ADC_GetConversion(LIDAR_ADC_CHAN);
 }
 
-//int32_t lidar_read_old(void)
-//{
-//    I2C_MESSAGE_STATUS stat;
-//    uint8_t pdata[2] = {0, 4};
-//    uint8_t upper = 0x0f;
-//    uint8_t lower = 0x10;
-//    uint8_t upperread, lowerread;
-//
-//    // TODO: this could fail, so put a while loop around it
-//    I2C_MasterWrite(pdata, 2, 0x62, &stat);
-//    while (stat == I2C_MESSAGE_PENDING);
-//    if (stat != I2C_MESSAGE_COMPLETE)
-//        return -1;
-//
-//    // this delay is *required*. per the lidar datasheet, as an alternative
-//    // polling the device during reads, we can wait about 20ms and the
-//    // measurement will be ready
-//    __delay_ms(20);
-//
-//    stat = I2C_MESSAGE_PENDING;
-//    
-//    // read high 8 bits of measurement
-//    I2C_MasterWrite(&upper, 1, 0x62, &stat);
-//    while(stat == I2C_MESSAGE_PENDING);
-//    I2C_MasterRead(&upperread, 1, 0x62, &stat);
-//    while(stat == I2C_MESSAGE_PENDING);
-//    if (stat != I2C_MESSAGE_COMPLETE)
-//        return -1;
-//
-//    __delay_ms(1);
-//    
-//    // read low 8 bits of measurement
-//    I2C_MasterWrite(&lower, 1, 0x62, &stat);
-//    while(stat == I2C_MESSAGE_PENDING);
-//    I2C_MasterRead(&lowerread, 1, 0x62, &stat);
-//    while(stat == I2C_MESSAGE_PENDING);
-//    if (stat != I2C_MESSAGE_COMPLETE)
-//        return -1;
-//    
-//    __delay_ms(1);
-//    return (upperread << 8) + lowerread;
-//}
-
 adc_result_t lidar_trigger(adc_result_t measurement)
 {
     return measurement > LIDAR_THRESH;
 }
 
+void lidar_feedback(adc_result_t trigger)
+{
+    if (lidar_trigger(trigger)) {
+        pwm1_output_enable();
+        led_on();
+    } else {
+        pwm1_output_disable();
+        led_off();
+    }
+}
+
 // Feedback
-
-void led_on(void)
-{
-    LED_PIN = 1;
-}
-
-void led_off(void)
-{
-    LED_PIN = 0;
-}
-
 
 void feedback_trigger(int trigger)
 {
@@ -172,86 +153,39 @@ void feedback_trigger(int trigger)
     }
 }
 
+
+
+// Main
+
 void main(void)
 {
     // initialize the device
     SYSTEM_Initialize();
-    //usound_init(); 
-
-    // When using interrupts, you need to set the 
-    // Global and Peripheral Interrupt Enable bits
-    // Use the following macros to:
-
-    // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
-
-    // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
 
     TRISC0 = 0;
     
-    // if there's ever an error in this loop, we ignore it and restart
-    // the control loop
     while (1)
     {
-        //uint16_t usound_dist = usound_read();
+        uint16_t usound_dist = usound_read();
         adc_result_t lidar_dist = lidar_read();
-//
+
+        lidar_feedback(lidar_dist);
+        usound_feedback(usound_dist);
         //feedback_trigger(lidar_trigger(lidar_dist) || usound_trigger(usound_dist));
-        feedback_trigger(lidar_trigger(lidar_dist));
+        //feedback_trigger(lidar_trigger(lidar_dist));
         //feedback_trigger(usound_trigger(usound_dist));
         
 //        LED_PIN = 1;
-//        __delay_ms(100);
-//        LED_PIN = 0;
-//        __delay_ms(100);
+
+//        pwm1_output_enable();
+//        __delay_ms(1000);
+////        LED_PIN = 0;
+//        pwm1_output_disable();
+//        __delay_ms(1000);
+//        pwm3_output_enable();
+//        __delay_ms(1000);
+////        LED_PIN = 0;
+//        pwm3_output_disable();
+//        __delay_ms(1000);
     }
 }
-
-#if 0
-void pwm_output_disable(void) {
-    PWM1CON &= ~(1<<6);
-    PWM3CON &= ~(1<<6);
-}
-
-void pwm_output_enable(void) {
-    PWM1CON |= (1<<6);
-    PWM3CON |= (1<<6);
-}
-
-/*
-                         Main application
- */
-void main(void)
-{
-    // initialize the device
-    SYSTEM_Initialize();
-
-    // When using interrupts, you need to set the Global and Peripheral Interrupt Enable bits
-    // Use the following macros to:
-
-    // Enable the Global Interrupts
-    //INTERRUPT_GlobalInterruptEnable();
-
-    // Enable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptEnable();
-
-    // Disable the Global Interrupts
-    //INTERRUPT_GlobalInterruptDisable();
-
-    // Disable the Peripheral Interrupts
-    //INTERRUPT_PeripheralInterruptDisable();
-
-    while (1)
-    {
-        // Add your application code
-        pwm_output_enable();
-        __delay_ms(1000);
-        pwm_output_disable();
-        __delay_ms(1000);
-    }
-}
-/**
- End of File
-*/
-#endif
