@@ -46,7 +46,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "mcc_generated_files/mcc.h"
 
-#define LIDAR_THRESH 120
+#define LIDAR_THRESH 500
 #define USOUND_THRESH 50
 
 #define LED_PIN RC0
@@ -71,19 +71,22 @@ void error(void) {
 //    ADCON2 = 0b00000000;
 //}
 
-int16_t usound_read_old(void)
+//int16_t usound_read_old(void)
+//{
+//    ADCON0bits.GO_nDONE = 1;
+//    while (ADCON0bits.GO);
+//    uint16_t sensor_value = ((ADRESH << 8) + ADRESL);
+//    float voltage = sensor_value * (3.3 / 1023.0);
+//    float range = voltage / .0064;
+//    return range;
+//}
+
+uint16_t usound_read(void)
 {
-    ADCON0bits.GO_nDONE = 1;
-    while (ADCON0bits.GO);
-    uint16_t sensor_value = ((ADRESH << 8) + ADRESL);
+    adc_result_t sensor_value = ADC_GetConversion(USOUND_ADC_CHAN);
     float voltage = sensor_value * (3.3 / 1023.0);
     float range = voltage / .0064;
-    return range;
-}
-
-adc_result_t usound_read(void)
-{
-    return ADC_GetConversion(USOUND_ADC_CHAN);
+    return (uint16_t) range;
 }
 
 uint32_t usound_trigger(adc_result_t measurement)
@@ -99,50 +102,50 @@ adc_result_t lidar_read(void)
     return ADC_GetConversion(LIDAR_ADC_CHAN);
 }
 
-int32_t lidar_read_old(void)
-{
-    I2C_MESSAGE_STATUS stat;
-    uint8_t pdata[2] = {0, 4};
-    uint8_t upper = 0x0f;
-    uint8_t lower = 0x10;
-    uint8_t upperread, lowerread;
+//int32_t lidar_read_old(void)
+//{
+//    I2C_MESSAGE_STATUS stat;
+//    uint8_t pdata[2] = {0, 4};
+//    uint8_t upper = 0x0f;
+//    uint8_t lower = 0x10;
+//    uint8_t upperread, lowerread;
+//
+//    // TODO: this could fail, so put a while loop around it
+//    I2C_MasterWrite(pdata, 2, 0x62, &stat);
+//    while (stat == I2C_MESSAGE_PENDING);
+//    if (stat != I2C_MESSAGE_COMPLETE)
+//        return -1;
+//
+//    // this delay is *required*. per the lidar datasheet, as an alternative
+//    // polling the device during reads, we can wait about 20ms and the
+//    // measurement will be ready
+//    __delay_ms(20);
+//
+//    stat = I2C_MESSAGE_PENDING;
+//    
+//    // read high 8 bits of measurement
+//    I2C_MasterWrite(&upper, 1, 0x62, &stat);
+//    while(stat == I2C_MESSAGE_PENDING);
+//    I2C_MasterRead(&upperread, 1, 0x62, &stat);
+//    while(stat == I2C_MESSAGE_PENDING);
+//    if (stat != I2C_MESSAGE_COMPLETE)
+//        return -1;
+//
+//    __delay_ms(1);
+//    
+//    // read low 8 bits of measurement
+//    I2C_MasterWrite(&lower, 1, 0x62, &stat);
+//    while(stat == I2C_MESSAGE_PENDING);
+//    I2C_MasterRead(&lowerread, 1, 0x62, &stat);
+//    while(stat == I2C_MESSAGE_PENDING);
+//    if (stat != I2C_MESSAGE_COMPLETE)
+//        return -1;
+//    
+//    __delay_ms(1);
+//    return (upperread << 8) + lowerread;
+//}
 
-    // TODO: this could fail, so put a while loop around it
-    I2C_MasterWrite(pdata, 2, 0x62, &stat);
-    while (stat == I2C_MESSAGE_PENDING);
-    if (stat != I2C_MESSAGE_COMPLETE)
-        return -1;
-
-    // this delay is *required*. per the lidar datasheet, as an alternative
-    // polling the device during reads, we can wait about 20ms and the
-    // measurement will be ready
-    __delay_ms(20);
-
-    stat = I2C_MESSAGE_PENDING;
-    
-    // read high 8 bits of measurement
-    I2C_MasterWrite(&upper, 1, 0x62, &stat);
-    while(stat == I2C_MESSAGE_PENDING);
-    I2C_MasterRead(&upperread, 1, 0x62, &stat);
-    while(stat == I2C_MESSAGE_PENDING);
-    if (stat != I2C_MESSAGE_COMPLETE)
-        return -1;
-
-    __delay_ms(1);
-    
-    // read low 8 bits of measurement
-    I2C_MasterWrite(&lower, 1, 0x62, &stat);
-    while(stat == I2C_MESSAGE_PENDING);
-    I2C_MasterRead(&lowerread, 1, 0x62, &stat);
-    while(stat == I2C_MESSAGE_PENDING);
-    if (stat != I2C_MESSAGE_COMPLETE)
-        return -1;
-    
-    __delay_ms(1);
-    return (upperread << 8) + lowerread;
-}
-
-uint32_t lidar_trigger(adc_result_t measurement)
+adc_result_t lidar_trigger(adc_result_t measurement)
 {
     return measurement > LIDAR_THRESH;
 }
@@ -180,10 +183,10 @@ void main(void)
     // Use the following macros to:
 
     // Enable the Global Interrupts
-    INTERRUPT_GlobalInterruptEnable();
+    //INTERRUPT_GlobalInterruptEnable();
 
     // Enable the Peripheral Interrupts
-    INTERRUPT_PeripheralInterruptEnable();
+    //INTERRUPT_PeripheralInterruptEnable();
 
     TRISC0 = 0;
     
@@ -191,17 +194,17 @@ void main(void)
     // the control loop
     while (1)
     {
-//        int16_t usound_dist = usound_read();
-//        int32_t lidar_dist = lidar_read();
-//        if (lidar_dist == -1)
-//            continue;
+        //uint16_t usound_dist = usound_read();
+        adc_result_t lidar_dist = lidar_read();
 //
-//        feedback_trigger(lidar_trigger(lidar_dist) || usound_trigger(usound_dist));
+        //feedback_trigger(lidar_trigger(lidar_dist) || usound_trigger(usound_dist));
+        feedback_trigger(lidar_trigger(lidar_dist));
+        //feedback_trigger(usound_trigger(usound_dist));
         
-        LED_PIN = 1;
-        __delay_ms(100);
-        LED_PIN = 0;
-        __delay_ms(100);
+//        LED_PIN = 1;
+//        __delay_ms(100);
+//        LED_PIN = 0;
+//        __delay_ms(100);
     }
 }
 
