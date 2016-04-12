@@ -46,13 +46,19 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include "mcc_generated_files/mcc.h"
 
-#define LIDAR_THRESH 500
+#define NPTS 12
+
+#define LIDAR_THRESH 1000
 #define USOUND_THRESH 50
 
 #define LED_PIN RC0
 
 #define USOUND_ADC_CHAN 7
 #define LIDAR_ADC_CHAN 6
+
+#define PWM_OFF 0
+#define PWM_50 510
+
 
 
 void error(void) {
@@ -71,24 +77,20 @@ void led_off(void)
 }
 
 void pwm1_output_disable(void) {
-    for(int i = 0; i < 15; i++)
-        PWM1CON &= ~(1<<6);
-    //PWM1CONbits.PWM1OE = 0;
-    
+    PWM1_LoadDutyValue(PWM_OFF);
 }
 
 void pwm1_output_enable(void) {
-//    PWM1CON |= (1<<6);
+    PWM1_LoadDutyValue(PWM_50);
     PWM1CONbits.PWM1OE = 1;
 }
 
 void pwm3_output_disable(void) {
-//    PWM3CON &= ~(1<<6);
-    PWM3CONbits.PWM3OE = 0;
+    PWM3_LoadDutyValue(PWM_OFF);
 }
 
 void pwm3_output_enable(void) {
-//    PWM3CON |= (1<<6);
+    PWM3_LoadDutyValue(PWM_50);
     PWM3CONbits.PWM3OE = 1;
 }
 
@@ -135,10 +137,10 @@ void lidar_feedback(adc_result_t trigger)
 {
     if (lidar_trigger(trigger)) {
         pwm1_output_enable();
-        led_on();
+        //led_on();
     } else {
         pwm1_output_disable();
-        led_off();
+        //led_off();
     }
 }
 
@@ -168,24 +170,19 @@ void main(void)
     {
         uint16_t usound_dist = usound_read();
         adc_result_t lidar_dist = lidar_read();
-
-        lidar_feedback(lidar_dist);
-        usound_feedback(usound_dist);
-        //feedback_trigger(lidar_trigger(lidar_dist) || usound_trigger(usound_dist));
-        //feedback_trigger(lidar_trigger(lidar_dist));
-        //feedback_trigger(usound_trigger(usound_dist));
+        //edge_found = lidar_edge_detect(lidar_dist)
+        //if (edge_found)
+            //Pulse 100% PWM;
+            //over_thresh = lidar_trigger(lidar_dist)
+        //if (over_thresh)
+            //PWM 50%
+            //over_thresh = lidar_trigger(lidar_dist)
+        //else
+            //PWM 0%
+    
+        lidar_feedback(lidar_dist); //bye
         
-//        LED_PIN = 1;
-
-//        pwm1_output_enable();
-//        __delay_ms(1000);
-////        LED_PIN = 0;
-//        pwm1_output_disable();
-//        __delay_ms(1000);
-//        pwm3_output_enable();
-//        __delay_ms(1000);
-////        LED_PIN = 0;
-//        pwm3_output_disable();
-//        __delay_ms(1000);
+        // overhead objects
+        usound_feedback(usound_dist);
     }
 }
