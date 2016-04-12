@@ -61,11 +61,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
      // PWM1POL active_hi; PWM1OE disabled; PWM1EN enabled; 
      PWM1CON = 0x80;
      
-     // PWM1DCH 76; 
-     PWM1DCH = 0x4C;
+     // PWM1DCH 127; 
+     PWM1DCH = 0x7F;
      
-     // PWM1DCL 2; 
-     PWM1DCL = 0x80;
+     // PWM1DCL 3; 
+     PWM1DCL = 0xC0;
      
  }
 
