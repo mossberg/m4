@@ -48,7 +48,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define NPTS 12
 
-#define LIDAR_THRESH 1000
+#define LIDAR_DIST_THRESH 500
+#define LIDAR_DERIV_THRESH 715
 #define USOUND_THRESH 50
 
 #define LED_PIN RC0
@@ -58,6 +59,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define PWM_OFF 0
 #define PWM_50 510
+#define PWM_100 1021
 
 
 
@@ -83,6 +85,13 @@ void pwm1_output_disable(void) {
 void pwm1_output_enable(void) {
     PWM1_LoadDutyValue(PWM_50);
     PWM1CONbits.PWM1OE = 1;
+}
+
+void pwm1_strong_pulse(void) {
+    PWM1_LoadDutyValue(PWM_100);
+    PWM1CONbits.PWM1OE = 1;
+    __delay_ms(100);
+    pwm1_output_disable();
 }
 
 void pwm3_output_disable(void) {
@@ -111,6 +120,7 @@ uint32_t usound_trigger(adc_result_t measurement)
 
 void usound_feedback(adc_result_t trigger)
 {
+    return;
     if (usound_trigger(trigger)) {
         pwm3_output_enable();
         led_on();
@@ -128,20 +138,81 @@ adc_result_t lidar_read(void)
     return ADC_GetConversion(LIDAR_ADC_CHAN);
 }
 
-adc_result_t lidar_trigger(adc_result_t measurement)
+adc_result_t lidar_depth_detect(adc_result_t measurement)
 {
-    return measurement > LIDAR_THRESH;
+    return measurement > LIDAR_DIST_THRESH;
 }
 
 void lidar_feedback(adc_result_t trigger)
 {
-    if (lidar_trigger(trigger)) {
+    if (lidar_depth_detect(trigger)) {
         pwm1_output_enable();
         //led_on();
     } else {
         pwm1_output_disable();
         //led_off();
     }
+}
+
+// Edge Detection
+// returns boolean based on whether any of the
+// computed derivatives exceeds a threshold
+// arg: lidar reading
+uint8_t lidar_edge_detect(int16_t lidar_dist)
+{
+    static uint8_t startup_fill_index = 0;
+    
+    // temporary output values and sensor value
+    int16_t vtmp[3];
+
+    // variables to compute the standard deviation
+    // int16_t x = 0, x2 = 0;
+
+    // input and output buffer
+    static int16_t idata[NPTS];
+    int16_t odata[NPTS];
+    uint8_t i, j;
+
+    if (startup_fill_index < NPTS){
+        idata[startup_fill_index] = lidar_dist;
+        startup_fill_index++;
+        return 0;
+    }
+    else{
+        for(i = 0; i < NPTS-1; i++)
+        {
+            idata[i] = idata[i+1];
+        }
+        //__delay_ms(50); --> moved to main
+        idata[NPTS-1] = lidar_dist;
+    }
+
+    // apply filter, compute the standard deviation
+    for(i = 0; i < NPTS/3; i++)
+    {
+        // apply the filter to the idata
+        vtmp[0] =   -idata[0+i*3] +   idata[2+i*3];
+        vtmp[1] = -2*idata[0+i*3] + 2*idata[2+i*3];
+        vtmp[2] =   -idata[0+i*3] +   idata[2+i*3];
+
+        // write the filtered results to odata
+        odata[0+i*3] = vtmp[0];
+        odata[1+i*3] = vtmp[1];
+        odata[2+i*3] = vtmp[2];
+
+    }
+
+    // check threshold
+    for(i = 0; i < NPTS; i++)
+    {
+        // check the raw threshold on the output of the filter
+        if(odata[i] > LIDAR_DERIV_THRESH)
+        {
+            startup_fill_index = 0;          
+            return 1;
+        }
+    }
+    return 0;
 }
 
 // Feedback
@@ -168,21 +239,24 @@ void main(void)
     
     while (1)
     {
-        uint16_t usound_dist = usound_read();
-        adc_result_t lidar_dist = lidar_read();
-        //edge_found = lidar_edge_detect(lidar_dist)
-        //if (edge_found)
-            //Pulse 100% PWM;
-            //over_thresh = lidar_trigger(lidar_dist)
-        //if (over_thresh)
-            //PWM 50%
-            //over_thresh = lidar_trigger(lidar_dist)
-        //else
-            //PWM 0%
-    
-        lidar_feedback(lidar_dist); //bye
+        __delay_ms(31);//max read time for lidar module
         
+        uint16_t usound_dist = usound_read();
         // overhead objects
-        usound_feedback(usound_dist);
+        usound_feedback(usound_dist);  
+        
+        adc_result_t lidar_dist = lidar_read();
+        uint16_t is_edge_found = lidar_edge_detect(lidar_dist);
+        uint8_t is_over_edge = 0;
+        if (is_edge_found) {
+            pwm1_strong_pulse();
+            is_over_edge = lidar_depth_detect(lidar_dist);
+        }
+        if (is_over_edge) {
+            pwm1_output_enable();
+            is_over_edge = lidar_depth_detect(lidar_dist);
+        } else {
+            pwm1_output_disable();
+        }
     }
 }
