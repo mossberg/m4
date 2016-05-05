@@ -77,8 +77,8 @@ void SYSTEM_Initialize(void)
 
 void OSCILLATOR_Initialize(void)
 {
-    // SCS FOSC; IRCF 8MHz_HF; 
-    OSCCON = 0x70;
+    // SCS INTOSC; IRCF 8MHz_HF; 
+    OSCCON = 0x72;
     // Set the secondary oscillator
     
 }

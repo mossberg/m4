@@ -1,0 +1,456 @@
+[p LITE_MODE AUTOSTATIC PIC14 PIC14E ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 16F1503 ]
+[d frameptr 6 ]
+"87 /home/m4/m4/src/pic16_fw/mcc_generated_files/adc.c
+[e E2933 . `uc
+channel_Temp 29
+channel_DAC 30
+channel_FVR 31
+]
+"117 /home/m4/m4/src/pic16_fw/main.c
+[e E2937 . `uc
+channel_Temp 29
+channel_DAC 30
+channel_FVR 31
+]
+"62 /opt/microchip/xc8/v1.36/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+"86 /opt/microchip/xc8/v1.36/sources/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 3 0 ]
+"56 /opt/microchip/xc8/v1.36/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+"62 /opt/microchip/xc8/v1.36/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+"44 /opt/microchip/xc8/v1.36/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+"28 /opt/microchip/xc8/v1.36/sources/common/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+"15 /opt/microchip/xc8/v1.36/sources/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+"4 /opt/microchip/xc8/v1.36/sources/common/Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+"71 /home/m4/m4/src/pic16_fw/main.c
+[v _led_on led_on `(v  1 e 1 0 ]
+"76
+[v _led_off led_off `(v  1 e 1 0 ]
+"81
+[v _pwm1_output_disable pwm1_output_disable `(v  1 e 1 0 ]
+"85
+[v _pwm1_output_enable pwm1_output_enable `(v  1 e 1 0 ]
+"90
+[v _pwm1_strong_pulse_100 pwm1_strong_pulse_100 `(v  1 e 1 0 ]
+"104
+[v _pwm3_output_disable pwm3_output_disable `(v  1 e 1 0 ]
+"108
+[v _pwm3_output_enable pwm3_output_enable `(v  1 e 1 0 ]
+"115
+[v _usound_read usound_read `(ui  1 e 2 0 ]
+"123
+[v _usound_trigger usound_trigger `(ul  1 e 4 0 ]
+"128
+[v _usound_feedback usound_feedback `(v  1 e 1 0 ]
+"143
+[v _lidar_read lidar_read `(ui  1 e 2 0 ]
+"148
+[v _lidar_depth_detect lidar_depth_detect `(ui  1 e 2 0 ]
+"168
+[v _lidar_edge_detect lidar_edge_detect `(uc  1 e 1 0 ]
+"240
+[v _main main `(v  1 e 1 0 ]
+"65 /home/m4/m4/src/pic16_fw/mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+"113
+[v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
+"67 /home/m4/m4/src/pic16_fw/mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+"78
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+"49 /home/m4/m4/src/pic16_fw/mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+"58 /home/m4/m4/src/pic16_fw/mcc_generated_files/pwm1.c
+[v _PWM1_Initialize PWM1_Initialize `(v  1 e 1 0 ]
+"72
+[v _PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
+"58 /home/m4/m4/src/pic16_fw/mcc_generated_files/pwm3.c
+[v _PWM3_Initialize PWM3_Initialize `(v  1 e 1 0 ]
+"72
+[v _PWM3_LoadDutyValue PWM3_LoadDutyValue `(v  1 e 1 0 ]
+"58 /home/m4/m4/src/pic16_fw/mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+"78
+[v _TMR2_StartTimer TMR2_StartTimer `(v  1 e 1 0 ]
+[s S167 . 1 `uc 1 IOCIF 1 0 :1:0 
+`uc 1 INTF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 IOCIE 1 0 :1:3 
+`uc 1 INTE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+"360 /opt/microchip/xc8/v1.36/include/pic16f1503.h
+[s S176 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :2:3 
+`uc 1 T0IE 1 0 :1:5 
+]
+[u S181 . 1 `S167 1 . 1 0 `S176 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES181  1 e 1 @11 ]
+[s S34 . 1 `uc 1 TMR1IF 1 0 :1:0 
+`uc 1 TMR2IF 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 SSP1IF 1 0 :1:3 
+`uc 1 . 1 0 :2:4 
+`uc 1 ADIF 1 0 :1:6 
+`uc 1 TMR1GIF 1 0 :1:7 
+]
+"528
+[u S42 . 1 `S34 1 . 1 0 ]
+[v _PIR1bits PIR1bits `VES42  1 e 1 @17 ]
+"824
+[v _TMR2 TMR2 `VEuc  1 e 1 @26 ]
+"843
+[v _PR2 PR2 `VEuc  1 e 1 @27 ]
+"862
+[v _T2CON T2CON `VEuc  1 e 1 @28 ]
+[s S57 . 1 `uc 1 T2CKPS 1 0 :2:0 
+`uc 1 TMR2ON 1 0 :1:2 
+`uc 1 T2OUTPS 1 0 :4:3 
+]
+"883
+[s S61 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+`uc 1 T2CKPS1 1 0 :1:1 
+`uc 1 . 1 0 :1:2 
+`uc 1 T2OUTPS0 1 0 :1:3 
+`uc 1 T2OUTPS1 1 0 :1:4 
+`uc 1 T2OUTPS2 1 0 :1:5 
+`uc 1 T2OUTPS3 1 0 :1:6 
+]
+[u S69 . 1 `S57 1 . 1 0 `S61 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES69  1 e 1 @28 ]
+"932
+[v _TRISA TRISA `VEuc  1 e 1 @140 ]
+"981
+[v _TRISC TRISC `VEuc  1 e 1 @142 ]
+[s S134 . 1 `uc 1 PS 1 0 :3:0 
+`uc 1 PSA 1 0 :1:3 
+`uc 1 TMR0SE 1 0 :1:4 
+`uc 1 TMR0CS 1 0 :1:5 
+`uc 1 INTEDG 1 0 :1:6 
+`uc 1 nWPUEN 1 0 :1:7 
+]
+"1162
+[s S141 . 1 `uc 1 PS0 1 0 :1:0 
+`uc 1 PS1 1 0 :1:1 
+`uc 1 PS2 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 T0SE 1 0 :1:4 
+`uc 1 T0CS 1 0 :1:5 
+]
+[u S148 . 1 `S134 1 . 1 0 `S141 1 . 1 0 ]
+[v _OPTION_REGbits OPTION_REGbits `VES148  1 e 1 @149 ]
+"1335
+[v _OSCCON OSCCON `VEuc  1 e 1 @153 ]
+"1438
+[v _ADRESL ADRESL `VEuc  1 e 1 @155 ]
+"1457
+[v _ADRESH ADRESH `VEuc  1 e 1 @156 ]
+"1476
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @157 ]
+[s S224 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :5:2 
+]
+"1501
+[s S228 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 ADGO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 CHS4 1 0 :1:6 
+]
+[s S236 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+]
+[u S239 . 1 `S224 1 . 1 0 `S228 1 . 1 0 `S236 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES239  1 e 1 @157 ]
+"1555
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @158 ]
+"1601
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @159 ]
+"1648
+[v _LATA LATA `VEuc  1 e 1 @268 ]
+"1692
+[v _LATC LATC `VEuc  1 e 1 @270 ]
+"2218
+[v _APFCON APFCON `VEuc  1 e 1 @285 ]
+"2262
+[v _ANSELA ANSELA `VEuc  1 e 1 @396 ]
+"2308
+[v _ANSELC ANSELC `VEuc  1 e 1 @398 ]
+"2535
+[v _WPUA WPUA `VEuc  1 e 1 @524 ]
+"3886
+[v _PWM1DCL PWM1DCL `VEuc  1 e 1 @1553 ]
+"3921
+[v _PWM1DCH PWM1DCH `VEuc  1 e 1 @1554 ]
+"3990
+[v _PWM1CON PWM1CON `VEuc  1 e 1 @1555 ]
+[s S277 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 PWM1POL 1 0 :1:4 
+`uc 1 PWM1OUT 1 0 :1:5 
+`uc 1 PWM1OE 1 0 :1:6 
+`uc 1 PWM1EN 1 0 :1:7 
+]
+"4009
+[u S283 . 1 `S277 1 . 1 0 ]
+[v _PWM1CONbits PWM1CONbits `VES283  1 e 1 @1555 ]
+"4244
+[v _PWM3DCL PWM3DCL `VEuc  1 e 1 @1559 ]
+"4279
+[v _PWM3DCH PWM3DCH `VEuc  1 e 1 @1560 ]
+"4348
+[v _PWM3CON PWM3CON `VEuc  1 e 1 @1561 ]
+[s S295 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 PWM3POL 1 0 :1:4 
+`uc 1 PWM3OUT 1 0 :1:5 
+`uc 1 PWM3OE 1 0 :1:6 
+`uc 1 PWM3EN 1 0 :1:7 
+]
+"4367
+[u S301 . 1 `S295 1 . 1 0 ]
+[v _PWM3CONbits PWM3CONbits `VES301  1 e 1 @1561 ]
+"7689
+[v _RC0 RC0 `VEb  1 e 0 @112 ]
+"7843
+[v _TRISC0 TRISC0 `VEb  1 e 0 @1136 ]
+"240 /home/m4/m4/src/pic16_fw/main.c
+[v _main main `(v  1 e 1 0 ]
+{
+"256
+[v main@lidar_dist lidar_dist `ui  1 a 2 39 ]
+"257
+[v main@is_edge_found is_edge_found `ui  1 a 2 36 ]
+"252
+[v main@usound_dist usound_dist `ui  1 a 2 34 ]
+"247
+[v main@is_over_edge is_over_edge `uc  1 a 1 38 ]
+"272
+} 0
+"115
+[v _usound_read usound_read `(ui  1 e 2 0 ]
+{
+"119
+[v usound_read@range range `f  1 a 3 21 ]
+"118
+[v usound_read@voltage voltage `f  1 a 3 18 ]
+"117
+[v usound_read@sensor_value sensor_value `ui  1 a 2 24 ]
+"121
+} 0
+"28 /opt/microchip/xc8/v1.36/sources/common/lwtoft.c
+[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
+{
+[v ___lwtoft@c c `ui  1 p 2 8 ]
+"31
+} 0
+"44 /opt/microchip/xc8/v1.36/sources/common/fttol.c
+[v ___fttol __fttol `(l  1 e 4 0 ]
+{
+"47
+[v ___fttol@lval lval `ul  1 a 4 9 ]
+"46
+[v ___fttol@exp1 exp1 `uc  1 a 1 13 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 8 ]
+"44
+[v ___fttol@f1 f1 `f  1 p 3 0 ]
+"73
+} 0
+"62 /opt/microchip/xc8/v1.36/sources/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 3 0 ]
+{
+"65
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 11 ]
+"64
+[v ___ftmul@sign sign `uc  1 a 1 15 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 14 ]
+[v ___ftmul@exp exp `uc  1 a 1 10 ]
+"62
+[v ___ftmul@f1 f1 `f  1 p 3 0 ]
+[v ___ftmul@f2 f2 `f  1 p 3 3 ]
+"157
+} 0
+"56 /opt/microchip/xc8/v1.36/sources/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+{
+"60
+[v ___ftdiv@f3 f3 `f  1 a 3 5 ]
+"59
+[v ___ftdiv@sign sign `uc  1 a 1 9 ]
+[v ___ftdiv@exp exp `uc  1 a 1 8 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 4 ]
+"56
+[v ___ftdiv@f2 f2 `f  1 p 3 8 ]
+[v ___ftdiv@f1 f1 `f  1 p 3 11 ]
+"86
+} 0
+"62 /opt/microchip/xc8/v1.36/sources/common/float.c
+[v ___ftpack __ftpack `(f  1 e 3 0 ]
+{
+[v ___ftpack@arg arg `um  1 p 3 0 ]
+[v ___ftpack@exp exp `uc  1 p 1 3 ]
+[v ___ftpack@sign sign `uc  1 p 1 4 ]
+"86
+} 0
+"128 /home/m4/m4/src/pic16_fw/main.c
+[v _usound_feedback usound_feedback `(v  1 e 1 0 ]
+{
+[v usound_feedback@trigger trigger `ui  1 p 2 8 ]
+"138
+} 0
+"123
+[v _usound_trigger usound_trigger `(ul  1 e 4 0 ]
+{
+[v usound_trigger@measurement measurement `ui  1 p 2 0 ]
+"126
+} 0
+"108
+[v _pwm3_output_enable pwm3_output_enable `(v  1 e 1 0 ]
+{
+"111
+} 0
+"104
+[v _pwm3_output_disable pwm3_output_disable `(v  1 e 1 0 ]
+{
+"106
+} 0
+"72 /home/m4/m4/src/pic16_fw/mcc_generated_files/pwm3.c
+[v _PWM3_LoadDutyValue PWM3_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v PWM3_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
+"79
+} 0
+"90 /home/m4/m4/src/pic16_fw/main.c
+[v _pwm1_strong_pulse_100 pwm1_strong_pulse_100 `(v  1 e 1 0 ]
+{
+"95
+} 0
+"81
+[v _pwm1_output_disable pwm1_output_disable `(v  1 e 1 0 ]
+{
+"83
+} 0
+"85
+[v _pwm1_output_enable pwm1_output_enable `(v  1 e 1 0 ]
+{
+"88
+} 0
+"72 /home/m4/m4/src/pic16_fw/mcc_generated_files/pwm1.c
+[v _PWM1_LoadDutyValue PWM1_LoadDutyValue `(v  1 e 1 0 ]
+{
+[v PWM1_LoadDutyValue@dutyValue dutyValue `ui  1 p 2 0 ]
+"79
+} 0
+"143 /home/m4/m4/src/pic16_fw/main.c
+[v _lidar_read lidar_read `(ui  1 e 2 0 ]
+{
+"146
+} 0
+"113 /home/m4/m4/src/pic16_fw/mcc_generated_files/adc.c
+[v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
+{
+[v ADC_GetConversion@channel channel `E2933  1 a 1 wreg ]
+[v ADC_GetConversion@channel channel `E2933  1 a 1 wreg ]
+"116
+[v ADC_GetConversion@channel channel `E2933  1 a 1 3 ]
+"134
+} 0
+"168 /home/m4/m4/src/pic16_fw/main.c
+[v _lidar_edge_detect lidar_edge_detect `(uc  1 e 1 0 ]
+{
+"180
+[v lidar_edge_detect@odata odata `[12]i  1 a 24 0 ]
+"173
+[v lidar_edge_detect@vtmp vtmp `[3]i  1 a 6 24 ]
+"181
+[v lidar_edge_detect@i i `uc  1 a 1 30 ]
+"168
+[v lidar_edge_detect@lidar_dist lidar_dist `i  1 p 2 6 ]
+"170
+[v lidar_edge_detect@startup_fill_index startup_fill_index `uc  1 s 1 startup_fill_index ]
+"179
+[v lidar_edge_detect@idata idata `[12]i  1 s 24 idata ]
+"223
+} 0
+"15 /opt/microchip/xc8/v1.36/sources/common/Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 4 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
+"53
+} 0
+"4 /opt/microchip/xc8/v1.36/sources/common/Umul8.c
+[v ___bmul __bmul `(uc  1 e 1 0 ]
+{
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+"6
+[v ___bmul@product product `uc  1 a 1 2 ]
+"4
+[v ___bmul@multiplier multiplier `uc  1 a 1 wreg ]
+[v ___bmul@multiplicand multiplicand `uc  1 p 1 0 ]
+"6
+[v ___bmul@multiplier multiplier `uc  1 a 1 3 ]
+"51
+} 0
+"148 /home/m4/m4/src/pic16_fw/main.c
+[v _lidar_depth_detect lidar_depth_detect `(ui  1 e 2 0 ]
+{
+[v lidar_depth_detect@measurement measurement `ui  1 p 2 6 ]
+"151
+} 0
+"67 /home/m4/m4/src/pic16_fw/mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 1 0 ]
+{
+"76
+} 0
+"58 /home/m4/m4/src/pic16_fw/mcc_generated_files/tmr2.c
+[v _TMR2_Initialize TMR2_Initialize `(v  1 e 1 0 ]
+{
+"76
+} 0
+"78
+[v _TMR2_StartTimer TMR2_StartTimer `(v  1 e 1 0 ]
+{
+"82
+} 0
+"58 /home/m4/m4/src/pic16_fw/mcc_generated_files/pwm3.c
+[v _PWM3_Initialize PWM3_Initialize `(v  1 e 1 0 ]
+{
+"70
+} 0
+"58 /home/m4/m4/src/pic16_fw/mcc_generated_files/pwm1.c
+[v _PWM1_Initialize PWM1_Initialize `(v  1 e 1 0 ]
+{
+"70
+} 0
+"49 /home/m4/m4/src/pic16_fw/mcc_generated_files/pin_manager.c
+[v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 1 0 ]
+{
+"64
+} 0
+"78 /home/m4/m4/src/pic16_fw/mcc_generated_files/mcc.c
+[v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 1 0 ]
+{
+"84
+} 0
+"65 /home/m4/m4/src/pic16_fw/mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 1 0 ]
+{
+"84
+} 0

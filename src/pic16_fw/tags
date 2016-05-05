@@ -1,0 +1,218 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist\/${CND_CONF}\/${IMAGE_TYPE}\/pic16_fw.${IMAGE_TYPE}.map  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    --memorysummary dist\/${CND_CONF}\/${IMAGE_TYPE}\/memoryfile.xml -odist\/${CND_CONF}\/${IMAGE_TYPE}\/pic16_fw.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} $(MP_EXTRA_LD_PRE) --chip=$(MP_PROCESSOR_OPTION) -G -mdist\/${CND_CONF}\/${IMAGE_TYPE}\/pic16_fw.${IMAGE_TYPE}.map  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"       --memorysummary dist\/${CND_CONF}\/${IMAGE_TYPE}\/memoryfile.xml -odist\/${CND_CONF}\/${IMAGE_TYPE}\/pic16_fw.${IMAGE_TYPE}.${DEBUGGABLE_SUFFIX}  ${OBJECTFILES_QUOTED_IF_SPACED}     $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/configuration_bits.p1  configuration_bits.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/interrupts.p1  interrupts.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/main.p1  main.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/adc.p1  mcc_generated_files\/adc.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/mcc.p1  mcc_generated_files\/mcc.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/pin_manager.p1  mcc_generated_files\/pin_manager.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/pwm1.p1  mcc_generated_files\/pwm1.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/pwm3.p1  mcc_generated_files\/pwm3.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/tmr2.p1  mcc_generated_files\/tmr2.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/system.p1  system.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/user.p1  user.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/configuration_bits.p1  configuration_bits.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/interrupts.p1  interrupts.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/main.p1  main.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/adc.p1  mcc_generated_files\/adc.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/mcc.p1  mcc_generated_files\/mcc.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/pin_manager.p1  mcc_generated_files\/pin_manager.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/pwm1.p1  mcc_generated_files\/pwm1.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/pwm3.p1  mcc_generated_files\/pwm3.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/mcc_generated_files\/tmr2.p1  mcc_generated_files\/tmr2.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/system.p1  system.c $/;"	m
+-stack	nbproject/Makefile-HT_PIC16F54.mk	/^	${MP_CC} --pass1 $(MP_EXTRA_CC_PRE) --chip=$(MP_PROCESSOR_OPTION) -Q -G  -D__DEBUG=1 --debugger=pickit3  --double=24 --float=24 --opt=default,+asm,+asmfile,-speed,+space,-debug --addrqual=ignore --mode=free -P -N255 --warn=-3 --asmlist --summary=default,-psect,-class,+mem,-hex,-file --output=default,-inhx032 --runtime=default,+clear,+init,-keep,-no_startup,-osccal,-resetbits,-download,-stackcall,+clib --output=-mcof,+elf:multilocs --stack=compiled:auto:auto "--errformat=%f:%l: error: (%n) %s" "--warnformat=%f:%l: warning: (%n) %s" "--msgformat=%f:%l: advisory: (%n) %s"    -o${OBJECTDIR}\/user.p1  user.c $/;"	m
+ACQ_US_DELAY	mcc_generated_files/adc.c	59;"	d	file:
+ADC_GetConversion	mcc_generated_files/adc.c	/^adc_result_t ADC_GetConversion(adc_channel_t channel)$/;"	f
+ADC_GetConversionResult	mcc_generated_files/adc.c	/^adc_result_t ADC_GetConversionResult(void)$/;"	f
+ADC_Initialize	mcc_generated_files/adc.c	/^void ADC_Initialize(void)$/;"	f
+ADC_IsConversionDone	mcc_generated_files/adc.c	/^bool ADC_IsConversionDone()$/;"	f
+ADC_StartConversion	mcc_generated_files/adc.c	/^void ADC_StartConversion(adc_channel_t channel)$/;"	f
+ALLCONFS	nbproject/Makefile-impl.mk	/^ALLCONFS=HT_PIC16F54 XC8_PIC16F54 HT_PIC16F785 XC8_PIC16F785 HT_PIC16F690 XC8_PIC16F690 HT_PIC16F1947 XC8_PIC16F1947 HT_PIC16F1827 XC8_PIC16F1827 $/;"	m
+ANALOG	mcc_generated_files/pin_manager.h	56;"	d
+ASFLAGS	nbproject/Makefile-HT_PIC16F54.mk	/^ASFLAGS=$/;"	m
+BUILD_SUBPROJECTS	nbproject/Makefile-impl.mk	/^BUILD_SUBPROJECTS=${BUILD_SUBPROJECTS_${SUBPROJECTS}}$/;"	m
+BUILD_SUBPROJECTS_	nbproject/Makefile-impl.mk	/^BUILD_SUBPROJECTS_=.build-subprojects$/;"	m
+BUILD_SUBPROJECTS_NO	nbproject/Makefile-impl.mk	/^BUILD_SUBPROJECTS_NO=$/;"	m
+CCADMIN	Makefile	/^CCADMIN=CCadmin$/;"	m
+CFLAGS	nbproject/Makefile-HT_PIC16F54.mk	/^CFLAGS=$/;"	m
+CLEAN_SUBPROJECTS	nbproject/Makefile-impl.mk	/^CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}$/;"	m
+CLEAN_SUBPROJECTS_	nbproject/Makefile-impl.mk	/^CLEAN_SUBPROJECTS_=.clean-subprojects$/;"	m
+CLEAN_SUBPROJECTS_NO	nbproject/Makefile-impl.mk	/^CLEAN_SUBPROJECTS_NO=$/;"	m
+CND_ARTIFACT_DIR_HT_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_HT_PIC16F1827=dist\/HT_PIC16F1827\/production$/;"	m
+CND_ARTIFACT_DIR_HT_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_HT_PIC16F1947=dist\/HT_PIC16F1947\/production$/;"	m
+CND_ARTIFACT_DIR_HT_PIC16F54	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_HT_PIC16F54=dist\/HT_PIC16F54\/production$/;"	m
+CND_ARTIFACT_DIR_HT_PIC16F690	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_HT_PIC16F690=dist\/HT_PIC16F690\/production$/;"	m
+CND_ARTIFACT_DIR_HT_PIC16F785	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_HT_PIC16F785=dist\/HT_PIC16F785\/production$/;"	m
+CND_ARTIFACT_DIR_XC8_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_XC8_PIC16F1827=dist\/XC8_PIC16F1827\/production$/;"	m
+CND_ARTIFACT_DIR_XC8_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_XC8_PIC16F1947=dist\/XC8_PIC16F1947\/production$/;"	m
+CND_ARTIFACT_DIR_XC8_PIC16F54	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_XC8_PIC16F54=dist\/XC8_PIC16F54\/production$/;"	m
+CND_ARTIFACT_DIR_XC8_PIC16F690	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_XC8_PIC16F690=dist\/XC8_PIC16F690\/production$/;"	m
+CND_ARTIFACT_DIR_XC8_PIC16F785	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_DIR_XC8_PIC16F785=dist\/XC8_PIC16F785\/production$/;"	m
+CND_ARTIFACT_NAME_HT_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_HT_PIC16F1827=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_NAME_HT_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_HT_PIC16F1947=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_NAME_HT_PIC16F54	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_HT_PIC16F54=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_NAME_HT_PIC16F690	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_HT_PIC16F690=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_NAME_HT_PIC16F785	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_HT_PIC16F785=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_NAME_XC8_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_XC8_PIC16F1827=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_NAME_XC8_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_XC8_PIC16F1947=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_NAME_XC8_PIC16F54	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_XC8_PIC16F54=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_NAME_XC8_PIC16F690	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_XC8_PIC16F690=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_NAME_XC8_PIC16F785	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_NAME_XC8_PIC16F785=pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_HT_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_HT_PIC16F1827=dist\/HT_PIC16F1827\/production\/pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_HT_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_HT_PIC16F1947=dist\/HT_PIC16F1947\/production\/pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_HT_PIC16F54	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_HT_PIC16F54=dist\/HT_PIC16F54\/production\/pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_HT_PIC16F690	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_HT_PIC16F690=dist\/HT_PIC16F690\/production\/pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_HT_PIC16F785	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_HT_PIC16F785=dist\/HT_PIC16F785\/production\/pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_XC8_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_XC8_PIC16F1827=dist\/XC8_PIC16F1827\/production\/pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_XC8_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_XC8_PIC16F1947=dist\/XC8_PIC16F1947\/production\/pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_XC8_PIC16F54	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_XC8_PIC16F54=dist\/XC8_PIC16F54\/production\/pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_XC8_PIC16F690	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_XC8_PIC16F690=dist\/XC8_PIC16F690\/production\/pic16_fw.production.hex$/;"	m
+CND_ARTIFACT_PATH_XC8_PIC16F785	nbproject/Makefile-variables.mk	/^CND_ARTIFACT_PATH_XC8_PIC16F785=dist\/XC8_PIC16F785\/production\/pic16_fw.production.hex$/;"	m
+CND_BASEDIR	nbproject/Makefile-variables.mk	/^CND_BASEDIR=`pwd`$/;"	m
+CND_CONF	nbproject/Makefile-HT_PIC16F54.mk	/^CND_CONF=HT_PIC16F54$/;"	m
+CND_PACKAGE_DIR_HT_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_HT_PIC16F1827=${CND_DISTDIR}\/HT_PIC16F1827\/package$/;"	m
+CND_PACKAGE_DIR_HT_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_HT_PIC16F1947=${CND_DISTDIR}\/HT_PIC16F1947\/package$/;"	m
+CND_PACKAGE_DIR_HT_PIC16F54	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_HT_PIC16F54=${CND_DISTDIR}\/HT_PIC16F54\/package$/;"	m
+CND_PACKAGE_DIR_HT_PIC16F690	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_HT_PIC16F690=${CND_DISTDIR}\/HT_PIC16F690\/package$/;"	m
+CND_PACKAGE_DIR_HT_PIC16F785	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_HT_PIC16F785=${CND_DISTDIR}\/HT_PIC16F785\/package$/;"	m
+CND_PACKAGE_DIR_XC8_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_XC8_PIC16F1827=${CND_DISTDIR}\/XC8_PIC16F1827\/package$/;"	m
+CND_PACKAGE_DIR_XC8_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_XC8_PIC16F1947=${CND_DISTDIR}\/XC8_PIC16F1947\/package$/;"	m
+CND_PACKAGE_DIR_XC8_PIC16F54	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_XC8_PIC16F54=${CND_DISTDIR}\/XC8_PIC16F54\/package$/;"	m
+CND_PACKAGE_DIR_XC8_PIC16F690	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_XC8_PIC16F690=${CND_DISTDIR}\/XC8_PIC16F690\/package$/;"	m
+CND_PACKAGE_DIR_XC8_PIC16F785	nbproject/Makefile-variables.mk	/^CND_PACKAGE_DIR_XC8_PIC16F785=${CND_DISTDIR}\/XC8_PIC16F785\/package$/;"	m
+CND_PACKAGE_NAME_HT_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_HT_PIC16F1827=pic16fw.tar$/;"	m
+CND_PACKAGE_NAME_HT_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_HT_PIC16F1947=pic16fw.tar$/;"	m
+CND_PACKAGE_NAME_HT_PIC16F54	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_HT_PIC16F54=pic16fw.tar$/;"	m
+CND_PACKAGE_NAME_HT_PIC16F690	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_HT_PIC16F690=pic16fw.tar$/;"	m
+CND_PACKAGE_NAME_HT_PIC16F785	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_HT_PIC16F785=pic16fw.tar$/;"	m
+CND_PACKAGE_NAME_XC8_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_XC8_PIC16F1827=pic16fw.tar$/;"	m
+CND_PACKAGE_NAME_XC8_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_XC8_PIC16F1947=pic16fw.tar$/;"	m
+CND_PACKAGE_NAME_XC8_PIC16F54	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_XC8_PIC16F54=pic16fw.tar$/;"	m
+CND_PACKAGE_NAME_XC8_PIC16F690	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_XC8_PIC16F690=pic16fw.tar$/;"	m
+CND_PACKAGE_NAME_XC8_PIC16F785	nbproject/Makefile-variables.mk	/^CND_PACKAGE_NAME_XC8_PIC16F785=pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_HT_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_HT_PIC16F1827=${CND_DISTDIR}\/HT_PIC16F1827\/package\/pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_HT_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_HT_PIC16F1947=${CND_DISTDIR}\/HT_PIC16F1947\/package\/pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_HT_PIC16F54	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_HT_PIC16F54=${CND_DISTDIR}\/HT_PIC16F54\/package\/pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_HT_PIC16F690	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_HT_PIC16F690=${CND_DISTDIR}\/HT_PIC16F690\/package\/pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_HT_PIC16F785	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_HT_PIC16F785=${CND_DISTDIR}\/HT_PIC16F785\/package\/pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_XC8_PIC16F1827	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_XC8_PIC16F1827=${CND_DISTDIR}\/XC8_PIC16F1827\/package\/pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_XC8_PIC16F1947	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_XC8_PIC16F1947=${CND_DISTDIR}\/XC8_PIC16F1947\/package\/pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_XC8_PIC16F54	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_XC8_PIC16F54=${CND_DISTDIR}\/XC8_PIC16F54\/package\/pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_XC8_PIC16F690	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_XC8_PIC16F690=${CND_DISTDIR}\/XC8_PIC16F690\/package\/pic16fw.tar$/;"	m
+CND_PACKAGE_PATH_XC8_PIC16F785	nbproject/Makefile-variables.mk	/^CND_PACKAGE_PATH_XC8_PIC16F785=${CND_DISTDIR}\/XC8_PIC16F785\/package\/pic16fw.tar$/;"	m
+CONF	nbproject/Makefile-impl.mk	/^CONF=${DEFAULTCONF}$/;"	m
+CP	Makefile	/^CP=cp$/;"	m
+CP	nbproject/Makefile-HT_PIC16F54.mk	/^CP=cp $/;"	m
+ConfigureOscillator	system.c	/^void ConfigureOscillator(void)$/;"	f
+DEBUGGABLE_SUFFIX	nbproject/Makefile-HT_PIC16F54.mk	/^DEBUGGABLE_SUFFIX=elf$/;"	m
+DEFAULTCONF	nbproject/Makefile-impl.mk	/^DEFAULTCONF=HT_PIC16F54$/;"	m
+DEPFILES	nbproject/Makefile-HT_PIC16F54.mk	/^DEPFILES=$(shell "${PATH_TO_IDE_BIN}"mplabwildcard ${POSSIBLE_DEPFILES})$/;"	m
+DEP_GEN	nbproject/Makefile-local-HT_PIC16F54.mk	/^DEP_GEN=${MP_JAVA_PATH}java -jar "\/opt\/microchip\/mplabx\/v3.26\/mplab_ide\/mplab_ide\/modules\/..\/..\/bin\/extractobjectdependencies.jar"$/;"	m
+DIGITAL	mcc_generated_files/pin_manager.h	57;"	d
+DISTDIR	nbproject/Makefile-HT_PIC16F54.mk	/^DISTDIR=dist\/${CND_CONF}\/${IMAGE_TYPE}$/;"	m
+FCY	system.h	9;"	d
+FINAL_IMAGE	nbproject/Makefile-HT_PIC16F54.mk	/^FINAL_IMAGE=dist\/${CND_CONF}\/${IMAGE_TYPE}\/pic16_fw.${IMAGE_TYPE}.${OUTPUT_SUFFIX}$/;"	m
+FIXDEPS	nbproject/Makefile-HT_PIC16F54.mk	/^FIXDEPS=fixDeps$/;"	m
+HIGH	mcc_generated_files/pin_manager.h	53;"	d
+IMAGE_TYPE	nbproject/Makefile-HT_PIC16F54.mk	/^IMAGE_TYPE=debug$/;"	m
+IMAGE_TYPE	nbproject/Makefile-HT_PIC16F54.mk	/^IMAGE_TYPE=production$/;"	m
+INPUT	mcc_generated_files/pin_manager.h	50;"	d
+InitApp	user.c	/^void InitApp(void)$/;"	f
+LDLIBSOPTIONS	nbproject/Makefile-HT_PIC16F54.mk	/^LDLIBSOPTIONS=$/;"	m
+LED_PIN	main.c	55;"	d	file:
+LIDAR_ADC_CHAN	main.c	58;"	d	file:
+LIDAR_DERIV_THRESH	main.c	52;"	d	file:
+LIDAR_DIST_THRESH	main.c	51;"	d	file:
+LOW	mcc_generated_files/pin_manager.h	54;"	d
+MCC_H	mcc_generated_files/mcc.h	48;"	d
+MKDIR	Makefile	/^MKDIR=mkdir$/;"	m
+MKDIR	nbproject/Makefile-HT_PIC16F54.mk	/^MKDIR=mkdir -p$/;"	m
+MP_AS	nbproject/Makefile-local-HT_PIC16F54.mk	/^MP_AS="\/opt\/microchip\/xc8\/v1.36\/bin\/xc8"$/;"	m
+MP_AS_DIR	nbproject/Makefile-local-HT_PIC16F54.mk	/^MP_AS_DIR="\/opt\/microchip\/xc8\/v1.36\/bin"$/;"	m
+MP_CC	nbproject/Makefile-local-HT_PIC16F54.mk	/^MP_CC="\/opt\/microchip\/xc8\/v1.36\/bin\/xc8"$/;"	m
+MP_CC_DIR	nbproject/Makefile-local-HT_PIC16F54.mk	/^MP_CC_DIR="\/opt\/microchip\/xc8\/v1.36\/bin"$/;"	m
+MP_JAVA_PATH	nbproject/Makefile-local-HT_PIC16F54.mk	/^MP_JAVA_PATH="\/opt\/microchip\/mplabx\/v3.26\/sys\/java\/jre1.8.0_65\/bin\/"$/;"	m
+MP_PROCESSOR_OPTION	nbproject/Makefile-HT_PIC16F54.mk	/^MP_PROCESSOR_OPTION=16F1503$/;"	m
+MV	nbproject/Makefile-HT_PIC16F54.mk	/^MV=mv $/;"	m
+NPTS	main.c	49;"	d	file:
+OBJECTDIR	nbproject/Makefile-HT_PIC16F54.mk	/^OBJECTDIR=build\/${CND_CONF}\/${IMAGE_TYPE}$/;"	m
+OBJECTFILES	nbproject/Makefile-HT_PIC16F54.mk	/^OBJECTFILES=${OBJECTDIR}\/mcc_generated_files\/pwm3.p1 ${OBJECTDIR}\/mcc_generated_files\/pwm1.p1 ${OBJECTDIR}\/mcc_generated_files\/tmr2.p1 ${OBJECTDIR}\/mcc_generated_files\/mcc.p1 ${OBJECTDIR}\/mcc_generated_files\/pin_manager.p1 ${OBJECTDIR}\/mcc_generated_files\/adc.p1 ${OBJECTDIR}\/configuration_bits.p1 ${OBJECTDIR}\/interrupts.p1 ${OBJECTDIR}\/main.p1 ${OBJECTDIR}\/system.p1 ${OBJECTDIR}\/user.p1$/;"	m
+OBJECTFILES_QUOTED_IF_SPACED	nbproject/Makefile-HT_PIC16F54.mk	/^OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}\/mcc_generated_files\/pwm3.p1 ${OBJECTDIR}\/mcc_generated_files\/pwm1.p1 ${OBJECTDIR}\/mcc_generated_files\/tmr2.p1 ${OBJECTDIR}\/mcc_generated_files\/mcc.p1 ${OBJECTDIR}\/mcc_generated_files\/pin_manager.p1 ${OBJECTDIR}\/mcc_generated_files\/adc.p1 ${OBJECTDIR}\/configuration_bits.p1 ${OBJECTDIR}\/interrupts.p1 ${OBJECTDIR}\/main.p1 ${OBJECTDIR}\/system.p1 ${OBJECTDIR}\/user.p1$/;"	m
+OSCILLATOR_Initialize	mcc_generated_files/mcc.c	/^void OSCILLATOR_Initialize(void)$/;"	f
+OS_CURRENT	nbproject/Makefile-local-HT_PIC16F54.mk	/^OS_CURRENT="$(shell uname -s)"$/;"	m
+OUTPUT	mcc_generated_files/pin_manager.h	51;"	d
+OUTPUT_SUFFIX	nbproject/Makefile-HT_PIC16F54.mk	/^OUTPUT_SUFFIX=elf$/;"	m
+OUTPUT_SUFFIX	nbproject/Makefile-HT_PIC16F54.mk	/^OUTPUT_SUFFIX=hex$/;"	m
+PATH	nbproject/Makefile-local-HT_PIC16F54.mk	/^PATH:=\/opt\/microchip\/mplabx\/v3.26\/mplab_ide\/mplab_ide\/modules\/..\/..\/bin\/:$(PATH)$/;"	m
+PATH_TO_IDE_BIN	nbproject/Makefile-local-HT_PIC16F54.mk	/^PATH_TO_IDE_BIN=\/opt\/microchip\/mplabx\/v3.26\/mplab_ide\/mplab_ide\/modules\/..\/..\/bin\/$/;"	m
+PIN_MANAGER_H	mcc_generated_files/pin_manager.h	48;"	d
+PIN_MANAGER_IOC	mcc_generated_files/pin_manager.c	/^void PIN_MANAGER_IOC(void)$/;"	f
+PIN_MANAGER_Initialize	mcc_generated_files/pin_manager.c	/^void PIN_MANAGER_Initialize(void)$/;"	f
+POSSIBLE_DEPFILES	nbproject/Makefile-HT_PIC16F54.mk	/^POSSIBLE_DEPFILES=${OBJECTDIR}\/mcc_generated_files\/pwm3.p1.d ${OBJECTDIR}\/mcc_generated_files\/pwm1.p1.d ${OBJECTDIR}\/mcc_generated_files\/tmr2.p1.d ${OBJECTDIR}\/mcc_generated_files\/mcc.p1.d ${OBJECTDIR}\/mcc_generated_files\/pin_manager.p1.d ${OBJECTDIR}\/mcc_generated_files\/adc.p1.d ${OBJECTDIR}\/configuration_bits.p1.d ${OBJECTDIR}\/interrupts.p1.d ${OBJECTDIR}\/main.p1.d ${OBJECTDIR}\/system.p1.d ${OBJECTDIR}\/user.p1.d$/;"	m
+PROJECTNAME	nbproject/Makefile-impl.mk	/^PROJECTNAME=pic16_fw$/;"	m
+PULL_UP_DISABLED	mcc_generated_files/pin_manager.h	60;"	d
+PULL_UP_ENABLED	mcc_generated_files/pin_manager.h	59;"	d
+PWM1_INITIALIZE_DUTY_VALUE	mcc_generated_files/pwm1.h	67;"	d
+PWM1_Initialize	mcc_generated_files/pwm1.c	/^ void PWM1_Initialize(void)$/;"	f
+PWM1_LoadDutyValue	mcc_generated_files/pwm1.c	/^ void PWM1_LoadDutyValue(uint16_t dutyValue)$/;"	f
+PWM3_INITIALIZE_DUTY_VALUE	mcc_generated_files/pwm3.h	67;"	d
+PWM3_Initialize	mcc_generated_files/pwm3.c	/^ void PWM3_Initialize(void)$/;"	f
+PWM3_LoadDutyValue	mcc_generated_files/pwm3.c	/^ void PWM3_LoadDutyValue(uint16_t dutyValue)$/;"	f
+PWM_100	main.c	62;"	d	file:
+PWM_50	main.c	61;"	d	file:
+PWM_OFF	main.c	60;"	d	file:
+RANLIB	Makefile	/^RANLIB=ranlib$/;"	m
+RM	nbproject/Makefile-HT_PIC16F54.mk	/^RM=rm -f $/;"	m
+SOURCEFILES	nbproject/Makefile-HT_PIC16F54.mk	/^SOURCEFILES=mcc_generated_files\/pwm3.c mcc_generated_files\/pwm1.c mcc_generated_files\/tmr2.c mcc_generated_files\/mcc.c mcc_generated_files\/pin_manager.c mcc_generated_files\/adc.c configuration_bits.c interrupts.c main.c system.c user.c$/;"	m
+SOURCEFILES_QUOTED_IF_SPACED	nbproject/Makefile-HT_PIC16F54.mk	/^SOURCEFILES_QUOTED_IF_SPACED=mcc_generated_files\/pwm3.c mcc_generated_files\/pwm1.c mcc_generated_files\/tmr2.c mcc_generated_files\/mcc.c mcc_generated_files\/pin_manager.c mcc_generated_files\/adc.c configuration_bits.c interrupts.c main.c system.c user.c$/;"	m
+SUBPROJECTS	nbproject/Makefile-impl.mk	/^SUBPROJECTS=${SUB_${SUB}}$/;"	m
+SUB_no	nbproject/Makefile-impl.mk	/^SUB_no=NO$/;"	m
+SYSTEM_Initialize	mcc_generated_files/mcc.c	/^void SYSTEM_Initialize(void)$/;"	f
+SYS_FREQ	system.h	8;"	d
+TMR2_HasOverflowOccured	mcc_generated_files/tmr2.c	/^bool TMR2_HasOverflowOccured(void)$/;"	f
+TMR2_Initialize	mcc_generated_files/tmr2.c	/^void TMR2_Initialize(void)$/;"	f
+TMR2_LoadPeriodRegister	mcc_generated_files/tmr2.c	/^void TMR2_LoadPeriodRegister(uint8_t periodVal)$/;"	f
+TMR2_ReadTimer	mcc_generated_files/tmr2.c	/^uint8_t TMR2_ReadTimer(void)$/;"	f
+TMR2_StartTimer	mcc_generated_files/tmr2.c	/^void TMR2_StartTimer(void)$/;"	f
+TMR2_StopTimer	mcc_generated_files/tmr2.c	/^void TMR2_StopTimer(void)$/;"	f
+TMR2_WriteTimer	mcc_generated_files/tmr2.c	/^void TMR2_WriteTimer(uint8_t timerVal)$/;"	f
+USOUND_ADC_CHAN	main.c	57;"	d	file:
+USOUND_THRESH	main.c	53;"	d	file:
+_ADC_H	mcc_generated_files/adc.h	48;"	d
+_PWM1_H	mcc_generated_files/pwm1.h	48;"	d
+_PWM3_H	mcc_generated_files/pwm3.h	48;"	d
+_TMR2_H	mcc_generated_files/tmr2.h	48;"	d
+_XTAL_FREQ	mcc_generated_files/mcc.h	58;"	d
+adc_channel_t	mcc_generated_files/adc.h	/^} adc_channel_t;$/;"	t	typeref:enum:__anon1
+adc_result_t	mcc_generated_files/adc.h	/^typedef uint16_t adc_result_t;$/;"	t
+channel_DAC	mcc_generated_files/adc.h	/^    channel_DAC =  0x1E,$/;"	e	enum:__anon1
+channel_FVR	mcc_generated_files/adc.h	/^    channel_FVR =  0x1F$/;"	e	enum:__anon1
+channel_Temp	mcc_generated_files/adc.h	/^    channel_Temp =  0x1D,$/;"	e	enum:__anon1
+checkReturnCode	nbproject/Package-HT_PIC16F54.bash	/^function checkReturnCode$/;"	f
+copyFileToTmpDir	nbproject/Package-HT_PIC16F54.bash	/^function copyFileToTmpDir$/;"	f
+error	main.c	/^void error(void) {$/;"	f
+feedback_trigger	main.c	/^void feedback_trigger(int trigger)$/;"	f
+led_off	main.c	/^void led_off(void)$/;"	f
+led_on	main.c	/^void led_on(void)$/;"	f
+lidar_depth_detect	main.c	/^adc_result_t lidar_depth_detect(adc_result_t measurement)$/;"	f
+lidar_edge_detect	main.c	/^uint8_t lidar_edge_detect(int16_t lidar_dist)$/;"	f
+lidar_feedback	main.c	/^void lidar_feedback(adc_result_t trigger)$/;"	f
+lidar_read	main.c	/^adc_result_t lidar_read(void)$/;"	f
+main	main.c	/^void main(void)$/;"	f
+makeDirectory	nbproject/Package-HT_PIC16F54.bash	/^function makeDirectory$/;"	f
+pwm1_output_disable	main.c	/^void pwm1_output_disable(void) {$/;"	f
+pwm1_output_enable	main.c	/^void pwm1_output_enable(void) {$/;"	f
+pwm1_strong_pulse_100	main.c	/^void pwm1_strong_pulse_100(void) {$/;"	f
+pwm1_strong_pulse_2000	main.c	/^void pwm1_strong_pulse_2000(void) {$/;"	f
+pwm3_output_disable	main.c	/^void pwm3_output_disable(void) {$/;"	f
+pwm3_output_enable	main.c	/^void pwm3_output_enable(void) {$/;"	f
+usound_feedback	main.c	/^void usound_feedback(adc_result_t trigger)$/;"	f
+usound_read	main.c	/^uint16_t usound_read(void)$/;"	f
+usound_trigger	main.c	/^uint32_t usound_trigger(adc_result_t measurement)$/;"	f
